@@ -23,3 +23,25 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("loginWrong", (userName, password) => {
+    cy.get("input").eq(0).type(userName);
+    cy.get("input").eq(1).type(password);
+    cy.get("button").click();
+    cy.get("span").contains("Login failed");
+});
+
+Cypress.Commands.add("loginRight", (userName, password) => {
+    cy.get("input").eq(0).type(userName);
+    cy.get("input").eq(1).type(password);
+    cy.get("button").click();
+    cy.get("span").contains("Login successful");
+});
+
+Cypress.Commands.add("findText", (text, htmlTag) => {
+    cy.get(htmlTag).contains(text);
+});
+
+Cypress.Commands.add("findColor", (color, htmlTag) => {
+    cy.get(htmlTag).should("have.css", "color", color);
+});
