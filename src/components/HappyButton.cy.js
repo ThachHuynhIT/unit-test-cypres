@@ -2,7 +2,7 @@ import React from "react";
 import { HappyButton } from "./HappyButton";
 
 describe("<HappyButton />", () => {
-  it("renders", () => {
+  it("renders correct text when mount", () => {
     const onClickSpy = cy.spy().as("onClick");
     const text = "Click me";
     cy.mount(<HappyButton onClick={onClickSpy} text={text} />);
@@ -10,7 +10,7 @@ describe("<HappyButton />", () => {
     cy.get("button").contains(text);
   });
 
-  it("calls onClick", () => {
+  it("should calls onClick function when click the button", () => {
     const onClickSpy = cy.spy().as("onClick");
     const text = "Click me";
     cy.mount(<HappyButton onClick={onClickSpy} text={text} />);

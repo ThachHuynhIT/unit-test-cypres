@@ -2,7 +2,7 @@ import React from "react";
 import { FormAlert } from "./FormAlert";
 
 describe("<FormAlert />", () => {
-  it("renders message success", () => {
+  it("renders message success should have green color", () => {
     const message = "Login successful";
     const type = "success";
     cy.mount(<FormAlert message={message} type={type} />);
@@ -12,7 +12,7 @@ describe("<FormAlert />", () => {
     cy.get("span").should("have.css", "color", "rgb(0, 128, 0)");
   });
 
-  it("renders message false", () => {
+  it("renders message false should have red color", () => {
     const message = "Login failed";
     const type = "error";
 
@@ -23,7 +23,7 @@ describe("<FormAlert />", () => {
     cy.get("span").should("have.css", "color", "rgb(255, 0, 0)");
   });
 
-  it("renders message warning", () => {
+  it("renders message warning should have yellow color", () => {
     const message = "Login warning";
     const type = "warning";
 
